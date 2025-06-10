@@ -1,12 +1,12 @@
 import streamlit as st
-import io
+st.set_page_config(page_title="Legal Document Summarizer & NER", layout="wide")
 
+import io
 # Import functions from your custom modules
 from utils import extract_text_from_pdf
 from model_inference import generate_summary, perform_ner
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Legal Document Summarizer & NER", layout="wide")
 
 st.title("⚖️ Legal Document Summarizer & NER App")
 st.markdown("""

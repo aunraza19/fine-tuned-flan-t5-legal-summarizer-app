@@ -7,26 +7,26 @@ SUMMARIZATION_MODEL_NAME = "aun09/flan-t5-legal-summary"
 
 # A suitable legal domain NER model from Hugging Face
 # Source: https://huggingface.co/dslim/bert-base-NER-legal
-NER_MODEL_NAME = "dslim/bert-base-NER-legal"
+NER_MODEL_NAME = "dslim/bert-base-NER"
 
 # --- Model Loading (Cached for performance) ---
 @st.cache_resource
 def load_summarization_model_and_tokenizer():
     """Loads the fine-tuned Flan-T5 summarization model and its tokenizer."""
-    st.info(f"Loading summarization model: {SUMMARIZATION_MODEL_NAME}...")
+    print(f"Loading summarization model: {SUMMARIZATION_MODEL_NAME}...")
     tokenizer = AutoTokenizer.from_pretrained(SUMMARIZATION_MODEL_NAME)
     model = AutoModelForSeq2SeqLM.from_pretrained(SUMMARIZATION_MODEL_NAME)
-    st.success("Summarization model loaded!")
+    print("Summarization model loaded!")
     return tokenizer, model
 
  # Replace with your actual token
 @st.cache_resource
 def load_ner_pipeline():
     """Loads the legal NER pipeline."""
-    st.info(f"Loading NER model: {NER_MODEL_NAME}...")
+    print(f"Loading NER model: {NER_MODEL_NAME}...")
     # Using pipeline for NER is convenient
     ner_pipeline = pipeline("ner", model=NER_MODEL_NAME, tokenizer=NER_MODEL_NAME, aggregation_strategy="simple")
-    st.success("NER model loaded!")
+    print("NER model loaded!")
     return ner_pipeline
 
 # Load models once when the app starts
@@ -66,7 +66,7 @@ def perform_ner(text: str):
     # then combine results. This simple implementation processes the whole text.
     max_ner_length_words = 512
     if len(text.split()) > max_ner_length_words:
-        st.warning(
+        print(
             f"Input text is very long ({len(text.split())} words). NER model might truncate or perform less accurately. Consider processing in chunks for production.")
         # For robust production use, implement proper text chunking and NER inference per chunk.
 
@@ -74,5 +74,5 @@ def perform_ner(text: str):
         ner_results = ner_pipeline(text)
         return ner_results
     except Exception as e:
-        st.error(f"Error performing NER: {e}")
+        print(f"Error performing NER: {e}")
         return []
