@@ -13,20 +13,20 @@ NER_MODEL_NAME = "dslim/bert-base-NER"
 @st.cache_resource
 def load_summarization_model_and_tokenizer():
     """Loads the fine-tuned Flan-T5 summarization model and its tokenizer."""
-    print(f"Loading summarization model: {SUMMARIZATION_MODEL_NAME}...")
+    st.info(f"Loading summarization model: {SUMMARIZATION_MODEL_NAME}...")
     tokenizer = AutoTokenizer.from_pretrained(SUMMARIZATION_MODEL_NAME)
     model = AutoModelForSeq2SeqLM.from_pretrained(SUMMARIZATION_MODEL_NAME)
-    print("Summarization model loaded!")
+    st.success("Summarization model loaded!")
     return tokenizer, model
 
  # Replace with your actual token
 @st.cache_resource
 def load_ner_pipeline():
     """Loads the legal NER pipeline."""
-    print(f"Loading NER model: {NER_MODEL_NAME}...")
+    st.info(f"Loading NER model: {NER_MODEL_NAME}...")
     # Using pipeline for NER is convenient
     ner_pipeline = pipeline("ner", model=NER_MODEL_NAME, tokenizer=NER_MODEL_NAME, aggregation_strategy="simple")
-    print("NER model loaded!")
+    st.success("NER model loaded!")
     return ner_pipeline
 
 # Load models once when the app starts
@@ -46,9 +46,9 @@ def generate_summary(text: str) -> str:
     # For legal summaries, typically longer summaries might be desired.
     summary_ids = summarizer_model.generate(
         inputs,
-        max_length=250,  # Max length of the generated summary
-        min_length=50,  # Min length of the generated summary
-        length_penalty=2.0,  # Encourage longer summaries
+        max_length=500,  # Max length of the generated summary
+        min_length=250,  # Min length of the generated summary
+        length_penalty=3.0,  # Encourage longer summaries
         num_beams=4,  # For better quality summary
         early_stopping=True
     )
@@ -74,5 +74,5 @@ def perform_ner(text: str):
         ner_results = ner_pipeline(text)
         return ner_results
     except Exception as e:
-        print(f"Error performing NER: {e}")
+        st.error(f"Error performing NER: {e}")
         return []
