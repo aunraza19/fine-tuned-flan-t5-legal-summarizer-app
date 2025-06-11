@@ -1,4 +1,4 @@
-# ⚖️ Legal Document Summarizer & NER App
+# ⚖️ Fine-Tuned FLAN-T5 for Legal Document Summarization & NER
 
 This project is a complete Natural Language Processing (NLP) pipeline for **summarizing legal documents** and performing **Named Entity Recognition (NER)** using a fine-tuned large language model (LLM). It features an interactive web interface built with **Streamlit**, supports both **PDF and plain text input**, and lets users **download results** for legal analysis or reporting.
 
