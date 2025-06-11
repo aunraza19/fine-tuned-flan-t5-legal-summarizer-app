@@ -46,18 +46,30 @@ Legal documents are often long, dense, and filled with domain-specific language 
 
 ---
 
-## 🧑‍💻 App Structure
-legal-summarizer-app/
-├── app.py # Main Streamlit web app
-├── model_inference.py # Hugging Face model loading & summarization
-├── utils.py # PDF text extraction and spaCy NER
-├── requirements.txt # All Python dependencies
-├── example_docs/ # Built-in sample legal PDF
-│ └── Court Ruling - BC-2024-087543.pdf
-├── training/ # Kaggle notebook used to fine-tune the model
-│ └── flan_t5_finetuning_kaggle.ipynb
-├── README.md # You're here
+## 🧑‍💻 Repository Structure
 
+- `app.py`  
+  → Main Streamlit app for legal summarization and NER
+
+- `model_inference.py`  
+  → Loads the fine-tuned FLAN-T5 model from Hugging Face and performs summarization
+
+- `utils.py`  
+  → Handles PDF text extraction (via PyMuPDF) and spaCy-based NER
+
+- `requirements.txt`  
+  → List of Python dependencies for running the app
+
+- `example_docs/`  
+  → Folder containing an example legal PDF
+  - `Court Ruling - BC-2024-087543.pdf` — Built-in PDF for testing without uploading
+
+- `training/`  
+  → Contains the Kaggle notebook used to fine-tune the summarization model
+  - `flan_t5_finetuning_kaggle.ipynb` — Model training code on `FiscalNote/billsum` dataset
+
+- `README.md`  
+  → You're here! Full documentation of the project
 
 ---
 
@@ -89,12 +101,6 @@ By fine-tuning a model on real legal bill summaries (`FiscalNote/billsum`), we g
    - 📌 Summary
    - 🔍 Grouped entities by type
 6. Option to download results as `.txt`
-
----
-
-## 🖼️ App UI Preview
-
-![UI Screenshot](https://huggingface.co/aun09/flan-t5-legal-summary/raw/main/demo.png) <!-- Optional: Upload image to HF and replace URL -->
 
 ---
 
