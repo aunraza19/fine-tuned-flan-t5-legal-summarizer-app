@@ -1,6 +1,5 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-import io
 
 def extract_text_from_pdf(pdf_file_obj) -> str | None:
     """
@@ -21,6 +20,3 @@ def extract_text_from_pdf(pdf_file_obj) -> str | None:
     except Exception as e:
         st.error(f"Error extracting text from PDF: {e}")
         return None
-
-# You can add other utility functions here in the future,
-# e.g., for text cleaning, chunking for very long documents, etc.
