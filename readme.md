@@ -108,7 +108,7 @@ By fine-tuning a model on real legal bill summaries (`FiscalNote/billsum`), we g
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/aunraza19/Fine_tuned_Flan_T5.git
+git clone https://github.com/aunraza19/fine-tuned-flan-t5-legal-summarizer-app.git
 cd legal-summarizer-app
 ```
 
