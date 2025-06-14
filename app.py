@@ -39,10 +39,10 @@ elif input_choice == "Upload PDF File":
 
 # Option 3: Use Example PDF
 elif input_choice == "Use Example PDF":
-    example_path = os.path.join("example_docs", "Court Ruling - BC-2024-087543.pdf")
+    example_path = os.path.join("example_docs", "example.pdf")
     if os.path.exists(example_path):
         with open(example_path, "rb") as example_file:
-            filename = "Court Ruling - BC-2024-087543.pdf"
+            filename = "example.pdf"
             st.info(f"Using built-in example: {filename}")
             document_text = extract_text_from_pdf(example_file)
             with st.expander("View Extracted Text"):
