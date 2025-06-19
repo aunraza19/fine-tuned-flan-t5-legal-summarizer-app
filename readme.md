@@ -57,14 +57,14 @@ Legal documents are often long, dense, and filled with domain-specific language 
   → Loads the fine-tuned FLAN-T5 model from Hugging Face and performs summarization
 
 - `utils.py`  
-  → Handles PDF text extraction (via PyMuPDF) and spaCy-based NER
+  → Handles PDF text extraction (via PyMuPDF) and dslim/bert-base-NER based NER
 
 - `requirements.txt`  
   → List of Python dependencies for running the app
 
 - `example_docs/`  
   → Folder containing an example legal PDF
-  - `Court Ruling - BC-2024-087543.pdf` — Built-in PDF for testing without uploading
+  - `example.pdf` — Built-in PDF for testing without uploading
 
 - `training/`  
   → Contains the Kaggle notebook used to fine-tune the summarization model
