@@ -2,7 +2,7 @@
 
 This project is a complete Natural Language Processing (NLP) pipeline for **summarizing legal documents** and performing **Named Entity Recognition (NER)** using a fine-tuned large language model (LLM). It features an interactive web interface built with **Streamlit**, supports both **PDF and plain text input**, and lets users **download results** for legal analysis or reporting.
 
-Demo at: https://pn9igm4fpaznhyt9cp3ueh.streamlit.app/
+Demo at: https://gm78bjtrk96denxkr7b79z.streamlit.app/
 
 ---
 
