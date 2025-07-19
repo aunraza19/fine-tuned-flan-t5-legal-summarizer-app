@@ -15,7 +15,7 @@ Legal documents are often long, dense, and filled with domain-specific language 
 ## 🧠 Model Architecture
 
 ### 🔹 Base Model
-- [`google/flan-t5-large`](https://huggingface.co/google/flan-t5-large) — a powerful encoder-decoder model pretrained using instruction tuning across diverse tasks.
+- [`google/flan-t5-Base`](https://huggingface.co/google/flan-t5-base) — a powerful encoder-decoder model pretrained using instruction tuning across diverse tasks.
 
 ### 🔹 Fine-tuned Model
 - Model Name: `aun09/flan-t5-legal-summary`
